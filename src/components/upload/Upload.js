@@ -50,17 +50,21 @@ const Upload = () => {
       });
   };
 
+  const renderSpinner = () => {
+    return (
+      <div className="text-center">
+        <Spinner animation="border" role="status">
+          <span className="sr-only">{DATA.msgUploading}</span>
+        </Spinner>
+      </div>
+    );
+  };
+
   // File content to be displayed after
   // file upload is complete
   const fileData = () => {
     if (loading) {
-      return (
-        <div className="text-center">
-          <Spinner animation="border" role="status">
-            <span className="sr-only">{DATA.msgUploading}</span>
-          </Spinner>
-        </div>
-      );
+      renderSpinner();
     }
     if (selectedFile) {
       return (
