@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/plasma/static/css/main.9c0cd15a.chunk.css",
+    "main.css": "/plasma/static/css/main.fdf7de8d.chunk.css",
     "main.js": "/plasma/static/js/main.0d86c4b9.chunk.js",
     "main.js.map": "/plasma/static/js/main.0d86c4b9.chunk.js.map",
     "runtime-main.js": "/plasma/static/js/runtime-main.2df4f032.js",
@@ -20,7 +20,7 @@
     "index.html": "/plasma/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/plasma/static/css/2.20aa2d7b.chunk.css.map",
     "static/css/5.afd7172b.chunk.css.map": "/plasma/static/css/5.afd7172b.chunk.css.map",
-    "static/css/main.9c0cd15a.chunk.css.map": "/plasma/static/css/main.9c0cd15a.chunk.css.map",
+    "static/css/main.fdf7de8d.chunk.css.map": "/plasma/static/css/main.fdf7de8d.chunk.css.map",
     "static/js/2.71034b5d.chunk.js.LICENSE.txt": "/plasma/static/js/2.71034b5d.chunk.js.LICENSE.txt",
     "static/media/plasma-min.28b04e5f.png": "/plasma/static/media/plasma-min.28b04e5f.png"
   },
@@ -28,7 +28,7 @@
     "static/js/runtime-main.2df4f032.js",
     "static/css/2.20aa2d7b.chunk.css",
     "static/js/2.71034b5d.chunk.js",
-    "static/css/main.9c0cd15a.chunk.css",
+    "static/css/main.fdf7de8d.chunk.css",
     "static/js/main.0d86c4b9.chunk.js"
   ]
 }
