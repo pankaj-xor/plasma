@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/plasma/static/css/main.fdf7de8d.chunk.css",
+    "main.js": "/plasma/static/js/main.4e86b598.chunk.js",
+    "main.js.map": "/plasma/static/js/main.4e86b598.chunk.js.map",
+    "runtime-main.js": "/plasma/static/js/runtime-main.f90b90fe.js",
+    "runtime-main.js.map": "/plasma/static/js/runtime-main.f90b90fe.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/plasma/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.4d17f6cd.chunk.js": "/plasma/static/js/2.4d17f6cd.chunk.js",
+    "static/js/2.4d17f6cd.chunk.js.map": "/plasma/static/js/2.4d17f6cd.chunk.js.map",
+    "static/js/3.2116ec99.chunk.js": "/plasma/static/js/3.2116ec99.chunk.js",
+    "static/js/3.2116ec99.chunk.js.map": "/plasma/static/js/3.2116ec99.chunk.js.map",
+    "static/js/4.2e7b3f4e.chunk.js": "/plasma/static/js/4.2e7b3f4e.chunk.js",
+    "static/js/4.2e7b3f4e.chunk.js.map": "/plasma/static/js/4.2e7b3f4e.chunk.js.map",
+    "static/css/5.afd7172b.chunk.css": "/plasma/static/css/5.afd7172b.chunk.css",
+    "static/js/5.5c41bec6.chunk.js": "/plasma/static/js/5.5c41bec6.chunk.js",
+    "static/js/5.5c41bec6.chunk.js.map": "/plasma/static/js/5.5c41bec6.chunk.js.map",
+    "static/js/6.0344ce86.chunk.js": "/plasma/static/js/6.0344ce86.chunk.js",
+    "static/js/6.0344ce86.chunk.js.map": "/plasma/static/js/6.0344ce86.chunk.js.map",
+    "index.html": "/plasma/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/plasma/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/5.afd7172b.chunk.css.map": "/plasma/static/css/5.afd7172b.chunk.css.map",
+    "static/css/main.fdf7de8d.chunk.css.map": "/plasma/static/css/main.fdf7de8d.chunk.css.map",
+    "static/js/2.4d17f6cd.chunk.js.LICENSE.txt": "/plasma/static/js/2.4d17f6cd.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f90b90fe.js",
+    "static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.4d17f6cd.chunk.js",
+    "static/css/main.fdf7de8d.chunk.css",
+    "static/js/main.4e86b598.chunk.js"
+  ]
+}
