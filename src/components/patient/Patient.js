@@ -1,7 +1,7 @@
 // import logo from "./logo.svg";
 import React from "react";
 import { DATA } from "../../constants/en";
-import { Button, Form, Alert, Spinner, Row, Col, Table } from "react-bootstrap";
+import { Button, Form, Row, Col } from "react-bootstrap";
 
 const Patient = () => {
   return (
@@ -14,31 +14,35 @@ const Patient = () => {
         }}
       >
         <Form.Group as={Row}>
-          <Col>
-            <Form.Label>First Name</Form.Label>
+          <Form.Label as={Col} sm="2">
+            First Name
+          </Form.Label>
+          <Col sm="4">
             <Form.Control
               type="text"
               placeholder="Enter First Name"
               size="sm"
             />
           </Col>
-          <Col>
-            <Form.Label>Last Name</Form.Label>
+          <Form.Label as={Col} sm="2">
+            Last Name
+          </Form.Label>
+          <Col sm="4">
             <Form.Control type="text" placeholder="Enter Last Name" size="sm" />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             Age
           </Form.Label>
-          <Col sm="5">
+          <Col sm="4">
             <Form.Control type="number" placeholder="Enter Age" size="sm" />
           </Col>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             Gender{" "}
           </Form.Label>
-          <Col sm="5">
+          <Col sm="4">
             <Form.Control as="select">
               <option>Male</option>
               <option>Female</option>
@@ -47,20 +51,20 @@ const Patient = () => {
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             Mobile
           </Form.Label>
-          <Col sm="5">
+          <Col sm="4">
             <Form.Control
               type="number"
               placeholder="Enter Mobile No"
               size="sm"
             />
           </Col>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             Email Id
           </Form.Label>
-          <Col>
+          <Col sm="4">
             <Form.Control
               type="email"
               placeholder="Enter Email Id"
@@ -71,7 +75,7 @@ const Patient = () => {
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             Address
           </Form.Label>
           <Col>
@@ -80,47 +84,50 @@ const Patient = () => {
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             State
           </Form.Label>
-          <Col sm="3">
+          <Col sm="4">
             <Form.Control type="text" placeholder="Enter State" size="sm" />
           </Col>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             City
           </Form.Label>
-          <Col sm="3">
+          <Col sm="4">
             <Form.Control type="text" placeholder="Enter City" size="sm" />
-          </Col>
-          <Form.Label as={Col} sm="1">
-            Zip
-          </Form.Label>
-          <Col sm="3">
-            <Form.Control type="number" placeholder="Enter Zip" size="sm" />
           </Col>
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
+            Zip
+          </Form.Label>
+          <Col sm="4">
+            <Form.Control type="number" placeholder="Enter Zip" size="sm" />
+          </Col>
+          <Form.Label as={Col} sm="2">
             Weight
           </Form.Label>
-          <Col sm="3">
+          <Col sm="4">
             <Form.Control type="text" placeholder="Enter Weight" size="sm" />
           </Col>
-          <Form.Label as={Col} sm="1">
+        </Form.Group>
+
+        <Form.Group as={Row}>
+          <Form.Label as={Col} sm="2">
             Blood
           </Form.Label>
-          <Col sm="3">
+          <Col sm="4">
             <Form.Control
               type="text"
               placeholder="Enter Blood Group"
               size="sm"
             />
           </Col>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             HB Level
           </Form.Label>
-          <Col sm="3">
+          <Col sm="4">
             <Form.Control type="text" placeholder="Enter HB Level" size="sm" />
           </Col>
         </Form.Group>
@@ -254,28 +261,31 @@ const Patient = () => {
         </Form.Group>
 
         <Form.Group as={Row}>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             Has TB?
           </Form.Label>
-          <Col sm="3">
+          <Col sm="4">
             <Form.Control as="select">
               <option>Yes</option>
               <option>No</option>
             </Form.Control>
           </Col>
-          <Form.Label as={Col} sm="1">
+          <Form.Label as={Col} sm="2">
             Has Tatto?
           </Form.Label>
-          <Col sm="3">
+          <Col sm="4">
             <Form.Control as="select">
               <option>Yes</option>
               <option>No</option>
             </Form.Control>
           </Col>
-          <Form.Label as={Col} sm="1">
+        </Form.Group>
+
+        <Form.Group as={Row}>
+          <Form.Label as={Col} sm="2">
             Has Surgery?
           </Form.Label>
-          <Col sm="3">
+          <Col sm="4">
             <Form.Control as="select">
               <option>Yes</option>
               <option>No</option>

@@ -34,14 +34,20 @@ const Upload = () => {
 
     // Request made to the backend api
     // Send formData object
-    axios.post(API.upload, formData).then((res) => {
-      console.log(res);
-      if (res && res.data && res.data.statusCode === 200) {
+    axios
+      .post(API.upload, formData)
+      .then((res) => {
+        if (res && res.data && res.data.statusCode === 200) {
+          setLoading(false);
+          setSelectedFile(null);
+          setMessage(res.data.data);
+        }
+      })
+      .catch((e) => {
         setLoading(false);
         setSelectedFile(null);
-        setMessage(res.data.data);
-      }
-    });
+        setMessage(DATA.msgError);
+      });
   };
 
   // File content to be displayed after
