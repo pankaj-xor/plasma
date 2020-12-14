@@ -1,7 +1,7 @@
 // import logo from "./logo.svg";
 import React, { lazy, Suspense } from "react";
 import { Container } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
 import "./App.css";
