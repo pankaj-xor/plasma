@@ -11,18 +11,22 @@ import Footer from "./components/footer/Footer";
 const Upload = lazy(() => import("./components/upload/Upload"));
 const Patient = lazy(() => import("./components/patient/Patient"));
 
+const renderSpinner = () => {
+  return (
+    <div className="text-center">
+      <Spinner animation="border" role="status">
+        {" "}
+      </Spinner>
+    </div>
+  );
+};
+
 const App = () => {
   return (
     <>
       <Container>
         <div className="App">
-          <Suspense
-            fallback={
-              <Spinner animation="border" role="status">
-                {" "}
-              </Spinner>
-            }
-          >
+          <Suspense fallback={renderSpinner()}>
             <Router>
               <TopNav></TopNav>
               <Switch>
