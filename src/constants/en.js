@@ -6,6 +6,7 @@ export const DATA = {
   msgUploading: "Uploading file. Please wait...",
   msgUpload: "Upload donor's file.",
   msgAddPatient: "Add Patient's details.",
+  msgError: "Error occured. Please try again.",
   btnUpload: "Upload!",
   navUpload: "Upload Donors",
   navAddPatient: "Add Patient",

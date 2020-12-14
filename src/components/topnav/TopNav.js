@@ -1,4 +1,4 @@
-// import logo from "./logo.svg";
+import brandImg from "../../img/plasma-min.png";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -10,7 +10,13 @@ const TopNav = () => {
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand>
         <Link to="/" className="nav-link">
-          {DATA.navBrand}
+          <img
+            width="24"
+            height="24"
+            src={brandImg}
+            alt={DATA.navBrand}
+            title={DATA.navBrand}
+          />
         </Link>
       </Navbar.Brand>
       <Nav className="mr-auto">
