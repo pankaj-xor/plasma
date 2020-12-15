@@ -4,5 +4,5 @@ export const URL = {
 };
 
 export const API = {
-  upload: `${URL.local}api/patient/upload`,
+  upload: `${URL.server}api/patient/upload`,
 };
