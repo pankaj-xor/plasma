@@ -3,6 +3,9 @@ export const URL = {
   server: "https://plasma-donor.herokuapp.com/",
 };
 
+const env = URL.server;
+
 export const API = {
-  upload: `${URL.server}api/patient/upload`,
+  upload: `${env}api/patient/upload`,
+  addPatient: `${env}api/patient/create`,
 };
