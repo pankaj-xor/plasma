@@ -64,7 +64,7 @@ const Upload = () => {
   // file upload is complete
   const fileData = () => {
     if (loading) {
-      renderSpinner();
+      return renderSpinner();
     }
     if (selectedFile) {
       return (
