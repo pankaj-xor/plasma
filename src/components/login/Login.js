@@ -47,7 +47,7 @@ const Login = () => {
                 variant="primary"
                 type="submit"
                 onClick={() => {
-                  history.push("/upload");
+                  history.push("/patients");
                 }}
               >
                 Login

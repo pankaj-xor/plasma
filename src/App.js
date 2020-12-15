@@ -11,6 +11,7 @@ import Login from "./components/login/Login";
 
 const Upload = lazy(() => import("./components/upload/Upload"));
 const Patient = lazy(() => import("./components/patient/Patient"));
+const Patients = lazy(() => import("./components/patients/Patients"));
 
 const renderSpinner = () => {
   return (
@@ -31,14 +32,17 @@ const App = () => {
             <Router>
               <TopNav></TopNav>
               <Switch>
+                <Route path="/patients">
+                  <Patients></Patients>
+                </Route>
+                <Route path="/patient/:id">
+                  <Patient></Patient>
+                </Route>
+                <Route path="/patient">
+                  <Patient></Patient>
+                </Route>
                 <Route path="/upload">
                   <Upload></Upload>
-                </Route>
-                <Route path="/addPatient/:id">
-                  <Patient></Patient>
-                </Route>
-                <Route path="/addPatient">
-                  <Patient></Patient>
                 </Route>
                 <Route path="/">
                   <Login></Login>

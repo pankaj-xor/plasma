@@ -24,11 +24,14 @@ const TopNav = () => {
         />
       </Navbar.Brand>
       <Nav className="mr-auto">
+        <Link to="/patients" className="nav-link">
+          {DATA.navPatients}
+        </Link>
+        <Link to="/patient" className="nav-link">
+          {DATA.navAddPatient}
+        </Link>
         <Link to="/upload" className="nav-link">
           {DATA.navUpload}
-        </Link>
-        <Link to="/addpatient" className="nav-link">
-          {DATA.navAddPatient}
         </Link>
       </Nav>
       <Navbar.Collapse className="justify-content-end">

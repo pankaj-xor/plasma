@@ -647,7 +647,7 @@ const Patient = () => {
         </div>
       </Form>
       <br />
-      {/* {showMessage()} */}
+      {showMessage()}
     </>
   );
 };
