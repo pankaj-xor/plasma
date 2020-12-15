@@ -37,8 +37,8 @@ const Upload = () => {
     axios
       .post(API.upload, formData)
       .then((res) => {
+        setLoading(false);
         if (res && res.data && res.data.statusCode === 200) {
-          setLoading(false);
           setSelectedFile(null);
           setMessage(res.data.data);
         }

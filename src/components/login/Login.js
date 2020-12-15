@@ -1,7 +1,7 @@
 // import logo from "./logo.svg";
 import React from "react";
-import { Button, Card, Col, Form, Nav, Navbar, Row } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import { DATA } from "../../constants/en";
 
 const Login = () => {
