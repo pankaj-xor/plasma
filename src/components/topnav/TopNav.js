@@ -1,23 +1,27 @@
 import brandImg from "../../img/plasma-min.png";
 import React from "react";
-import { Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Nav, Navbar } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import { DATA } from "../../constants/en";
 import "./TopNav.css";
 
 const TopNav = () => {
+  let history = useHistory();
+
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand>
-        <Link to="/" className="nav-link">
-          <img
-            width="24"
-            height="24"
-            src={brandImg}
-            alt={DATA.navBrand}
-            title={DATA.navBrand}
-          />
-        </Link>
+        <img
+          width="24"
+          height="24"
+          src={brandImg}
+          alt={DATA.navBrand}
+          title={DATA.navBrand}
+          onClick={() => {
+            history.push("/login");
+          }}
+          style={{ cursor: "pointer" }}
+        />
       </Navbar.Brand>
       <Nav className="mr-auto">
         <Link to="/upload" className="nav-link">
@@ -27,6 +31,19 @@ const TopNav = () => {
           {DATA.navAddPatient}
         </Link>
       </Nav>
+      <Navbar.Collapse className="justify-content-end">
+        <Navbar.Text>
+          <Button
+            variant="primary"
+            type="submit"
+            onClick={() => {
+              history.push("/login");
+            }}
+          >
+            Logout
+          </Button>
+        </Navbar.Text>
+      </Navbar.Collapse>
     </Navbar>
   );
 };

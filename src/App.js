@@ -7,6 +7,7 @@ import { Spinner } from "react-bootstrap";
 import "./App.css";
 import TopNav from "./components/topnav/TopNav";
 import Footer from "./components/footer/Footer";
+import Login from "./components/login/Login";
 
 const Upload = lazy(() => import("./components/upload/Upload"));
 const Patient = lazy(() => import("./components/patient/Patient"));
@@ -37,7 +38,7 @@ const App = () => {
                   <Patient></Patient>
                 </Route>
                 <Route path="/">
-                  <Upload></Upload>
+                  <Login></Login>
                 </Route>
               </Switch>
               <Footer></Footer>
