@@ -1,6 +1,6 @@
 export const URL = {
   local: "http://localhost:8080/",
-  server: "https://pankaj-xor.github.io/",
+  server: "https://plasma-donor.herokuapp.com/",
 };
 
 export const API = {
