@@ -130,6 +130,8 @@ const Patient = () => {
           setLoading(false);
           setMessage(DATA.msgError);
         });
+    } else {
+      dispatch({ type: "reset" });
     }
   }, [id]);
 
