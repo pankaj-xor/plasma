@@ -92,22 +92,31 @@ const Upload = () => {
 
   return (
     <>
-      <h4 className="text-center mar-top-bot-2rem">{DATA.msgUpload}</h4>
-      <hr />
-      <Form>
-        <Row>
-          <Col>
-            <Form.File id="upload" name="upload" onChange={onFileChange} />
-          </Col>
-          <Col>
-            <Button variant="primary" type="button" onClick={onFileUpload}>
-              {DATA.btnUpload}
-            </Button>
-          </Col>
-        </Row>
-      </Form>
-      <br />
-      {fileData()}
+      <Row>
+        <Col
+          sm={{ span: 6, offset: 3 }}
+          md={{ span: 6, offset: 3 }}
+          lg={{ span: 6, offset: 3 }}
+        >
+          <h4 className="text-center mar-top-bot-2rem">{DATA.msgUpload}</h4>
+
+          <hr />
+          <Form>
+            <Row>
+              <Col sm="9" md="9">
+                <Form.File id="upload" name="upload" onChange={onFileChange} />
+              </Col>
+              <Col>
+                <Button variant="primary" type="button" onClick={onFileUpload}>
+                  {DATA.btnUpload}
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+          <br />
+          {fileData()}
+        </Col>
+      </Row>
     </>
   );
 };

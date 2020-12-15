@@ -34,6 +34,9 @@ const App = () => {
                 <Route path="/upload">
                   <Upload></Upload>
                 </Route>
+                <Route path="/addPatient/:id">
+                  <Patient></Patient>
+                </Route>
                 <Route path="/addPatient">
                   <Patient></Patient>
                 </Route>

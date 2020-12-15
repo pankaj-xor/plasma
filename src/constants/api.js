@@ -8,4 +8,6 @@ const env = URL.server;
 export const API = {
   upload: `${env}api/patient/upload`,
   addPatient: `${env}api/patient/create`,
+  editPatient: `${env}api/patient/findById`,
+  updatePatient: `${env}api/patient/update`,
 };

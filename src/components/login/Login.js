@@ -2,7 +2,6 @@
 import React from "react";
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
-import { DATA } from "../../constants/en";
 
 const Login = () => {
   let history = useHistory();

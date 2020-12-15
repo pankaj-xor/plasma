@@ -1,9 +1,10 @@
 // import logo from "./logo.svg";
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { DATA } from "../../constants/en";
 import { Button, Form, Row, Col, Alert, Spinner } from "react-bootstrap";
 import Axios from "axios";
 import { API } from "../../constants/api";
+import { useParams } from "react-router-dom";
 
 const initialState = {
   name: "",
@@ -35,8 +36,7 @@ const initialState = {
   hasSurgery: "N",
 };
 
-function reducer(state, action) {
-  console.log(state, action);
+const reducer = (state, action) => {
   switch (action.type) {
     case "name":
       return { ...state, name: action.payload };
@@ -96,15 +96,42 @@ function reducer(state, action) {
       return initialState;
     case "reset":
       return initialState;
+    case "get":
+      return { ...action.payload };
+    case "update":
+      return state;
     default:
       throw new Error();
   }
-}
+};
 
 const Patient = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  let { id } = useParams();
+
+  useEffect(() => {
+    if (id) {
+      setLoading(true);
+      Axios.post(`${API.editPatient}/${id}`)
+        .then((res) => {
+          if (res && res.data && res.data.statusCode === 200) {
+            setLoading(false);
+            if (typeof res.data.data === "string") {
+              setMessage(res.data.data);
+            } else {
+              setMessage("Patient form loaded successfully for updating.");
+              dispatch({ type: "get", payload: res.data.data });
+            }
+          }
+        })
+        .catch((e) => {
+          setLoading(false);
+          setMessage(DATA.msgError);
+        });
+    }
+  }, [id]);
 
   const renderSpinner = () => {
     return (
@@ -116,18 +143,33 @@ const Patient = () => {
 
   const onSubmit = () => {
     setLoading(true);
-    Axios.post(API.addPatient, state)
-      .then((res) => {
-        if (res && res.data && res.data.statusCode === 200) {
+    if (id) {
+      Axios.post(`${API.updatePatient}/${id}`, state)
+        .then((res) => {
+          if (res && res.data && res.data.statusCode === 200) {
+            setLoading(false);
+            setMessage("Patient successfully updated.");
+            dispatch({ type: "update" });
+          }
+        })
+        .catch((e) => {
           setLoading(false);
-          setMessage("Patient successfully added.");
-          dispatch({ type: "submit" });
-        }
-      })
-      .catch((e) => {
-        setLoading(false);
-        setMessage(DATA.msgError);
-      });
+          setMessage(DATA.msgError);
+        });
+    } else {
+      Axios.post(API.addPatient, state)
+        .then((res) => {
+          if (res && res.data && res.data.statusCode === 200) {
+            setLoading(false);
+            setMessage("Patient successfully added.");
+            dispatch({ type: "submit" });
+          }
+        })
+        .catch((e) => {
+          setLoading(false);
+          setMessage(DATA.msgError);
+        });
+    }
   };
 
   const onReset = () => {
@@ -135,10 +177,20 @@ const Patient = () => {
     dispatch({ type: "reset" });
   };
 
+  const showMessage = () => {
+    return loading ? (
+      renderSpinner()
+    ) : message ? (
+      <Alert variant={"primary"}>{message}</Alert>
+    ) : null;
+  };
+
   return (
     <>
       <h4 className="text-center mar-top-bot-2rem">{DATA.msgAddPatient}</h4>
       <hr />
+      {showMessage()}
+      <br />
       <Form
         onSubmit={(e) => {
           e.preventDefault();
@@ -595,11 +647,7 @@ const Patient = () => {
         </div>
       </Form>
       <br />
-      {loading ? (
-        renderSpinner()
-      ) : message ? (
-        <Alert variant={"primary"}>{message}</Alert>
-      ) : null}
+      {/* {showMessage()} */}
     </>
   );
 };
