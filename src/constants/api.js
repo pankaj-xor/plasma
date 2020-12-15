@@ -11,4 +11,5 @@ export const API = {
   editPatient: `${env}api/patient/findById`,
   updatePatient: `${env}api/patient/update`,
   listPatients: `${env}api/patient/findAll`,
+  requestPlasma: `${env}api/plasma/request`,
 };

@@ -49,6 +49,25 @@ const Patients = () => {
     ) : null;
   };
 
+  const sendPlasmaRequest = (patientId) => {
+    setLoading(true);
+    Axios.post(`${API.requestPlasma}/${ patientId }`)
+      .then((res) => {
+        if (res && res.data && res.data.statusCode === 200) {
+          setLoading(false);
+          if (typeof res.data.data === "string") {
+            setMessage(res.data.data);
+          } else {
+            setMessage("Plasma request sent successfully.");
+          }
+        }
+      })
+      .catch((e) => {
+        setLoading(false);
+        setMessage(DATA.msgError);
+      });
+  };
+
   const renderPatients = () => {
     if (patients) {
       return patients.map((patient, index) => {
@@ -66,7 +85,12 @@ const Patients = () => {
               >
                 Update
               </span>
-              <span className="link">Raise Plasma Request</span>
+              <span
+                className="link"
+                onClick={() => sendPlasmaRequest(patient.id)}
+              >
+                Raise Plasma Request
+              </span>
             </td>
           </tr>
         );
