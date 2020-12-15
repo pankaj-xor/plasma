@@ -6,11 +6,13 @@ export const DATA = {
   msgUploading: "Uploading file. Please wait...",
   msgUpload: "Upload donor's file.",
   msgAddPatient: "Add Patient's details.",
+  msgPatients: "Patient's list.",
   msgError: "Error occured. Please try again.",
   btnUpload: "Upload!",
   navUpload: "Upload Donors",
   navAddPatient: "Add Patient",
   navBrand: "Plasma Tracker",
+  navPatients: "Patients list",
   footerContactUs: "Contact Us",
   footerAboutUs: "About Us",
 };

@@ -28,3 +28,20 @@ a {
 .mar-top-bot-2rem {
   margin: 2rem 0;
 }
+
+.table td,
+.table th {
+  padding: 0.1rem;
+  vertical-align: middle !important;
+}
+
+span.link {
+  display: inline-block;
+  color: blue;
+  cursor: pointer;
+  margin: 0 .5rem;
+}
+
+span.link:hover {
+  text-decoration: underline;
+}

@@ -10,4 +10,5 @@ export const API = {
   addPatient: `${env}api/patient/create`,
   editPatient: `${env}api/patient/findById`,
   updatePatient: `${env}api/patient/update`,
+  listPatients: `${env}api/patient/findAll`,
 };
