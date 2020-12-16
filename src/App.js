@@ -8,7 +8,7 @@ import "./App.css";
 import TopNav from "./components/topnav/TopNav";
 import Footer from "./components/footer/Footer";
 import Login from "./components/login/Login";
-import FBShare from "./components/fb-share/FBShare";
+import Share from "./components/share/Share";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
 
@@ -51,8 +51,8 @@ const App = () => {
                 <Route path="/closerequest">
                   <Donation></Donation>
                 </Route>
-                <Route path="/fbshare">
-                  <FBShare></FBShare>
+                <Route path="/share">
+                  <Share></Share>
                 </Route>
                 <Route path="/about">
                   <About></About>

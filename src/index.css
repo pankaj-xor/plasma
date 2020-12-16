@@ -12,12 +12,12 @@ code {
     monospace;
 }
 
-a:hover {
+.navbar-nav a:hover {
   color: bisque !important;
   text-decoration: underline !important;
 }
 
-a {
+.navbar-nav a {
   color: bisque !important;
 }
 

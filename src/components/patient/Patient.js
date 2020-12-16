@@ -22,7 +22,7 @@ const initialState = {
   admissionDate: "",
   dischargeDate: "",
   willingToDonate: "Y",
-  hasCovidRecovered: "Y",
+  hasCovidRecovered: "N",
   hasCancerPatient: "N",
   hasHIV: "N",
   hasHepatitis: "N",
