@@ -10,10 +10,10 @@ const Footer = () => {
       <hr />
       <Navbar bg="dark" variant="dark" sticky="bottom">
         <Nav className="mr-auto">
-          <Link to="/contactus" className="nav-link">
+          <Link to="/contact" className="nav-link">
             {DATA.footerContactUs}
           </Link>
-          <Link to="/aboutus" className="nav-link">
+          <Link to="/about" className="nav-link">
             {DATA.footerAboutUs}
           </Link>
         </Nav>

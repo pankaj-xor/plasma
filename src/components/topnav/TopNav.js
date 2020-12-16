@@ -33,6 +33,9 @@ const TopNav = () => {
         <Link to="/upload" className="nav-link">
           {DATA.navUpload}
         </Link>
+        <Link to="/closerequest" className="nav-link">
+          {DATA.navDonation}
+        </Link>
       </Nav>
       <Navbar.Collapse className="justify-content-end">
         <Navbar.Text>
