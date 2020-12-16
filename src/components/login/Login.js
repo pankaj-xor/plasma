@@ -40,9 +40,11 @@ const Login = () => {
                   value="password"
                 />
               </Form.Group>
+              
               <Form.Group controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Remember me" />
               </Form.Group>
+              
               <Button
                 variant="primary"
                 type="submit"

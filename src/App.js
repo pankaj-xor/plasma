@@ -8,10 +8,14 @@ import "./App.css";
 import TopNav from "./components/topnav/TopNav";
 import Footer from "./components/footer/Footer";
 import Login from "./components/login/Login";
+import FBShare from "./components/fb-share/FBShare";
+import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
 
 const Upload = lazy(() => import("./components/upload/Upload"));
 const Patient = lazy(() => import("./components/patient/Patient"));
 const Patients = lazy(() => import("./components/patients/Patients"));
+const Donation = lazy(() => import("./components/donation/Donation"));
 
 const renderSpinner = () => {
   return (
@@ -43,6 +47,18 @@ const App = () => {
                 </Route>
                 <Route path="/upload">
                   <Upload></Upload>
+                </Route>
+                <Route path="/closerequest">
+                  <Donation></Donation>
+                </Route>
+                <Route path="/fbshare">
+                  <FBShare></FBShare>
+                </Route>
+                <Route path="/about">
+                  <About></About>
+                </Route>
+                <Route path="/contact">
+                  <Contact></Contact>
                 </Route>
                 <Route path="/">
                   <Login></Login>

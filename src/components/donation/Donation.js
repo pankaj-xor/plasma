@@ -4,15 +4,13 @@ import React, { useEffect, useState } from "react";
 import { Alert, Spinner, Table } from "react-bootstrap";
 import { DATA } from "../../constants/en";
 import { API } from "../../constants/api";
-import { useHistory } from "react-router-dom";
 
 const patientsList = [];
 
-const Patients = () => {
+const Donation = () => {
   const [patients, setPatients] = useState(patientsList);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  let history = useHistory();
 
   useEffect(() => {
     setLoading(true);
@@ -49,7 +47,7 @@ const Patients = () => {
     ) : null;
   };
 
-  const sendPlasmaRequest = (patientId) => {
+  const closeDonationRequest = (patientId) => {
     setLoading(true);
     Axios.post(`${API.requestPlasma}/${patientId}`)
       .then((res) => {
@@ -58,7 +56,7 @@ const Patients = () => {
           if (typeof res.data.data === "string") {
             setMessage(res.data.data);
           } else {
-            setMessage("Plasma request sent successfully");
+            setMessage("Donation request closed successfully");
           }
         }
       })
@@ -76,20 +74,14 @@ const Patients = () => {
             <td>{index + 1}</td>
             <td>{patient.name}</td>
             <td>{patient.email}</td>
-            <td>{patient.bloodGroup}</td>
             <td>{patient.mobile}</td>
+            <td>Donars List</td>
             <td style={{ textAlign: "center" }}>
               <span
                 className="link"
-                onClick={() => history.push(`patient/${patient.id}`)}
+                onClick={() => closeDonationRequest(patient.id)}
               >
-                Edit
-              </span>
-              <span
-                className="link"
-                onClick={() => sendPlasmaRequest(patient.id)}
-              >
-                Raise Plasma Request
+                Close Donation Request
               </span>
             </td>
           </tr>
@@ -100,7 +92,7 @@ const Patients = () => {
 
   return (
     <>
-      <h4 className="text-center mar-top-bot-2rem">{DATA.msgPatients}</h4>
+      <h4 className="text-center mar-top-bot-2rem">{DATA.msgDonations}</h4>
       <hr />
       {showMessage()}
       <br />
@@ -110,8 +102,8 @@ const Patients = () => {
             <th>#</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Blood Group</th>
             <th>Mobile No</th>
+            <th>Donars List</th>
             <th style={{ textAlign: "center" }}>Actions</th>
           </tr>
         </thead>
@@ -121,4 +113,4 @@ const Patients = () => {
   );
 };
 
-export default Patients;
+export default Donation;
