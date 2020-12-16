@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 const initialState = {
   name: "",
   age: 0,
-  gender: "M",
+  gender: "",
   mobile: 0,
   email: "",
   address: "",
@@ -242,6 +242,7 @@ const Patient = () => {
                 dispatch({ type: "gender", payload: e.target.value })
               }
             >
+              <option value="">Select Gender</option>
               <option value="M">Male</option>
               <option value="F">Female</option>
             </Form.Control>
@@ -275,7 +276,6 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "email", payload: e.target.value })
               }
-              // required
             />
           </Col>
         </Form.Group>

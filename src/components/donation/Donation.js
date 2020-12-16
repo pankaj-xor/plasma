@@ -1,19 +1,37 @@
 // import logo from "./logo.svg";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Alert, Spinner, Table } from "react-bootstrap";
+import { Alert, Form, Spinner, Table } from "react-bootstrap";
 import { DATA } from "../../constants/en";
 import { API } from "../../constants/api";
 
 const patientsList = [];
+const donorsList = [];
 
 const Donation = () => {
   const [patients, setPatients] = useState(patientsList);
+  const [donors, setDonors] = useState(donorsList);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
     setLoading(true);
+    Axios.post(`${API.listDonors}`)
+      .then((res) => {
+        if (res && res.data && res.data.statusCode === 200) {
+          setLoading(false);
+          if (typeof res.data.data === "string") {
+            setMessage(res.data.data);
+          } else {
+            setDonors(res.data.data);
+          }
+        }
+      })
+      .catch((e) => {
+        setLoading(false);
+        setMessage("Donors: " + DATA.msgError);
+      });
+
     Axios.post(`${API.listPatients}`, { page: 1, size: 10 })
       .then((res) => {
         if (res && res.data && res.data.statusCode === 200) {
@@ -27,7 +45,7 @@ const Donation = () => {
       })
       .catch((e) => {
         setLoading(false);
-        setMessage(DATA.msgError);
+        setMessage("Patients: " + DATA.msgError);
       });
   }, []);
 
@@ -66,6 +84,14 @@ const Donation = () => {
       });
   };
 
+  const renderDonors = () => {
+    if (donors) {
+      return donors.map((donor, index) => {
+        return <option value="Test">Test</option>;
+      });
+    }
+  };
+
   const renderPatients = () => {
     if (patients) {
       return patients.map((patient, index) => {
@@ -75,7 +101,17 @@ const Donation = () => {
             <td>{patient.name}</td>
             <td>{patient.email}</td>
             <td>{patient.mobile}</td>
-            <td>Donars List</td>
+            <td>
+              <Form.Control
+                as="select"
+                // value={state.bloodGroup}
+                // onChange={(e) =>
+                //   dispatch({ type: "bloodGroup", payload: e.target.value })
+                // }
+              >
+                {renderDonors()}
+              </Form.Control>
+            </td>
             <td style={{ textAlign: "center" }}>
               <span
                 className="link"

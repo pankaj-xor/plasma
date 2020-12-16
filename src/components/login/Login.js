@@ -8,12 +8,12 @@ const Login = () => {
   return (
     <Row>
       <Col
-        sm={{ span: 4, offset: 4 }}
-        md={{ span: 4, offset: 4 }}
-        lg={{ span: 4, offset: 4 }}
+        sm={{ span: 6, offset: 3 }}
+        md={{ span: 6, offset: 3 }}
+        lg={{ span: 6, offset: 3 }}
       >
         <br />
-        <Card style={{ width: "18rem" }}>
+        <Card>
           <Card.Body>
             <Form
               onSubmit={(e) => {
