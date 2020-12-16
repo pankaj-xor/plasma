@@ -109,6 +109,7 @@ const Donation = () => {
                 //   dispatch({ type: "bloodGroup", payload: e.target.value })
                 // }
               >
+                <option value="">Select Donor</option>
                 {renderDonors()}
               </Form.Control>
             </td>
