@@ -1,7 +1,16 @@
 // import logo from "./logo.svg";
 import React, { useEffect, useReducer, useState } from "react";
 import { DATA } from "../../constants/en";
-import { Button, Form, Row, Col, Alert, Spinner } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  Row,
+  Col,
+  Alert,
+  Spinner,
+  InputGroup,
+  FormControl,
+} from "react-bootstrap";
 import Axios from "axios";
 import { API } from "../../constants/api";
 import { useParams } from "react-router-dom";
@@ -259,16 +268,21 @@ const Patient = () => {
             Mobile
           </Form.Label>
           <Col sm="4">
-            <Form.Control
-              type="number"
-              placeholder="Enter Mobile No"
-              size="sm"
-              value={state.mobile}
-              onChange={(e) =>
-                dispatch({ type: "mobile", payload: e.target.value })
-              }
-              required
-            />
+            <InputGroup className="mb-3">
+              <InputGroup.Prepend>
+                <InputGroup.Text id="basic-addon1">+91</InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                type="number"
+                placeholder="Enter Mobile No"
+                // size="sm"
+                value={state.mobile}
+                onChange={(e) =>
+                  dispatch({ type: "mobile", payload: e.target.value })
+                }
+                required
+              />
+            </InputGroup>
           </Col>
           <Form.Label as={Col} sm="2">
             Email Id
@@ -277,7 +291,7 @@ const Patient = () => {
             <Form.Control
               type="email"
               placeholder="Enter Email Id"
-              size="sm"
+              // size="sm"
               value={state.email}
               onChange={(e) =>
                 dispatch({ type: "email", payload: e.target.value })

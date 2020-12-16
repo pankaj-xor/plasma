@@ -20,8 +20,16 @@ const TopNav = () => {
           onClick={() => {
             history.push("/login");
           }}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", marginRight: ".7rem" }}
         />
+        <span
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            history.push("/login");
+          }}
+        >
+          Saving Lives
+        </span>
       </Navbar.Brand>
       <Nav className="mr-auto">
         <Link to="/patients" className="nav-link">
