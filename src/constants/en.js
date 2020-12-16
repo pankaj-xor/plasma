@@ -12,9 +12,9 @@ export const DATA = {
   btnUpload: "Upload!",
   navUpload: "Upload Donors",
   navAddPatient: "Add Patient",
-  navBrand: "Plasma Tracker",
+  navBrand: "Saving Lives",
   navPatients: "Patients list",
-  navDonation: "Close Donations",
+  navDonation: "Plasma Request",
   footerContactUs: "Contact Us",
   footerAboutUs: "About Us",
 };
