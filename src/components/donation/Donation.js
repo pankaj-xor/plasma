@@ -6,11 +6,9 @@ import { DATA } from "../../constants/en";
 import { API } from "../../constants/api";
 
 const patientsList = [];
-const donorsList = [];
 
 const Donation = () => {
   const [patients, setPatients] = useState(patientsList);
-  const [donors, setDonors] = useState(donorsList);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -23,29 +21,13 @@ const Donation = () => {
           if (typeof res.data.data === "string") {
             setMessage(res.data.data);
           } else {
-            setDonors(res.data.data);
-          }
-        }
-      })
-      .catch((e) => {
-        setLoading(false);
-        setMessage("Donors: " + DATA.msgError);
-      });
-
-    Axios.post(`${API.listPatients}`, { page: 1, size: 10 })
-      .then((res) => {
-        if (res && res.data && res.data.statusCode === 200) {
-          setLoading(false);
-          if (typeof res.data.data === "string") {
-            setMessage(res.data.data);
-          } else {
             setPatients(res.data.data);
           }
         }
       })
       .catch((e) => {
         setLoading(false);
-        setMessage("Patients: " + DATA.msgError);
+        setMessage("Donors: " + DATA.msgError);
       });
   }, []);
 
@@ -66,8 +48,18 @@ const Donation = () => {
   };
 
   const closeDonationRequest = (patientId) => {
+    const patient = patients.find((patient) => patient.patientId == patientId);
+
+    const selectedDonor = patient.donorsList.find((donor) => {
+      return donor.selected == true;
+    });
+
     setLoading(true);
-    Axios.post(`${API.requestPlasma}/${patientId}`)
+    Axios.post(`${API.closeDonationRequest}`, {
+      patientId,
+      donorId: selectedDonor.donorId,
+      donationDate: patient.donationDate,
+    })
       .then((res) => {
         if (res && res.data && res.data.statusCode === 200) {
           setLoading(false);
@@ -84,10 +76,29 @@ const Donation = () => {
       });
   };
 
-  const renderDonors = () => {
+  const onDonorSelect = (patientId, donorId) => {
+    const patient = patients.find((patient) => patient.patientId == patientId);
+    patient.donorsList.forEach((donor) => {
+      if (donor.donorId == donorId) {
+        donor.selected = true;
+      }
+    });
+  };
+
+  const onDateChange = (patientId, date) => {
+    const patient = patients.find((patient) => patient.patientId == patientId);
+    patient.donationDate = date;
+  };
+
+  const renderDonors = (donors) => {
     if (donors) {
       return donors.map((donor, index) => {
-        return <option value="Test">Test</option>;
+        donor.selected = false;
+        return (
+          <option key={donor.donorId} value={donor.donorId}>
+            {donor.name}
+          </option>
+        );
       });
     }
   };
@@ -96,27 +107,36 @@ const Donation = () => {
     if (patients) {
       return patients.map((patient, index) => {
         return (
-          <tr key={patient.email}>
+          <tr key={patient.patientId}>
             <td>{index + 1}</td>
-            <td>{patient.name}</td>
-            <td>{patient.email}</td>
-            <td>{patient.mobile}</td>
+            <td>{patient.patientName}</td>
+            <td>{patient.patientEmail}</td>
+            <td>
+              <Form.Control
+                type="date"
+                placeholder="Enter Admission Date"
+                size="sm"
+                value={patient.donationDate}
+                onChange={(e) =>
+                  onDateChange(patient.patientId, e.target.value)
+                }
+              />
+            </td>
             <td>
               <Form.Control
                 as="select"
-                // value={state.bloodGroup}
-                // onChange={(e) =>
-                //   dispatch({ type: "bloodGroup", payload: e.target.value })
-                // }
+                onChange={(e) =>
+                  onDonorSelect(patient.patientId, e.target.value)
+                }
               >
                 <option value="">Select Donor</option>
-                {renderDonors()}
+                {renderDonors(patient.donorsList)}
               </Form.Control>
             </td>
             <td style={{ textAlign: "center" }}>
               <span
                 className="link"
-                onClick={() => closeDonationRequest(patient.id)}
+                onClick={() => closeDonationRequest(patient.patientId)}
               >
                 Close Donation Request
               </span>
@@ -139,7 +159,7 @@ const Donation = () => {
             <th>#</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Mobile No</th>
+            <th>Donation Date</th>
             <th>Donars List</th>
             <th style={{ textAlign: "center" }}>Actions</th>
           </tr>

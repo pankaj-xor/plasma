@@ -13,4 +13,5 @@ export const API = {
   listPatients: `${env}api/patient/findAll`,
   requestPlasma: `${env}api/plasma/request`,
   listDonors: `${env}api/plasma/request/close/getdata`,
+  closeDonationRequest: `${env}api/plasma/request/close/submit`,
 };
