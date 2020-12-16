@@ -58,7 +58,7 @@ const Patients = () => {
           if (typeof res.data.data === "string") {
             setMessage(res.data.data);
           } else {
-            setMessage("Plasma request sent successfully.");
+            setMessage("Plasma request sent successfully");
           }
         }
       })
@@ -83,7 +83,7 @@ const Patients = () => {
                 className="link"
                 onClick={() => history.push(`patient/${patient.id}`)}
               >
-                Update
+                Edit
               </span>
               <span
                 className="link"

@@ -121,7 +121,7 @@ const Patient = () => {
             if (typeof res.data.data === "string") {
               setMessage(res.data.data);
             } else {
-              setMessage("Patient form loaded successfully for updating.");
+              // setMessage("Patient form loaded successfully for updating.");
               dispatch({ type: "get", payload: res.data.data });
             }
           }
@@ -150,7 +150,7 @@ const Patient = () => {
         .then((res) => {
           if (res && res.data && res.data.statusCode === 200) {
             setLoading(false);
-            setMessage("Patient successfully updated.");
+            setMessage("Patient successfully updated");
             dispatch({ type: "update" });
           }
         })
@@ -163,7 +163,7 @@ const Patient = () => {
         .then((res) => {
           if (res && res.data && res.data.statusCode === 200) {
             setLoading(false);
-            setMessage("Patient successfully added.");
+            setMessage("Patient successfully added");
             dispatch({ type: "submit" });
           }
         })
@@ -370,10 +370,14 @@ const Patient = () => {
                 dispatch({ type: "bloodGroup", payload: e.target.value })
               }
             >
-              <option value="A">A</option>
-              <option value="B">B</option>
-              <option value="AB">AB</option>
-              <option value="O">O</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
             </Form.Control>
           </Col>
           <Form.Label as={Col} sm="2">
