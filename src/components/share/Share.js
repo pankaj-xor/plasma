@@ -48,7 +48,7 @@ const Share = () => {
                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpankaj-xor.github.io%2Fplasma%2F%23%2Ffbshare&amp;src=sdkpreparse"
                   class="fb-xfbml-parse-ignore"
                 >
-                  <Button variant="primary" size="sm">FB Share</Button>
+                  {/* <Button variant="primary" size="sm">FB Share</Button> */}
                 </a>
               </span>
             </Card.Text>
