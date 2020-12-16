@@ -8,15 +8,15 @@ import { useParams } from "react-router-dom";
 
 const initialState = {
   name: "",
-  age: 0,
+  age: "",
   gender: "",
-  mobile: 0,
+  mobile: "",
   email: "",
   address: "",
   city: "",
   state: "",
-  zip: 0,
-  weight: 0,
+  zip: "",
+  weight: "",
   bloodGroup: "A",
   hbLevel: "",
   admissionDate: "",
@@ -196,8 +196,10 @@ const Patient = () => {
       <br />
       <Form
         onSubmit={(e) => {
+          onSubmit();
           e.preventDefault();
         }}
+        onReset={onReset}
       >
         <Form.Group as={Row}>
           <Form.Label as={Col} sm="2">
@@ -212,6 +214,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "name", payload: e.target.value })
               }
+              required
             />
           </Col>
         </Form.Group>
@@ -229,6 +232,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "age", payload: e.target.value })
               }
+              required
             />
           </Col>
           <Form.Label as={Col} sm="2">
@@ -241,6 +245,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "gender", payload: e.target.value })
               }
+              required
             >
               <option value="">Select Gender</option>
               <option value="M">Male</option>
@@ -262,6 +267,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "mobile", payload: e.target.value })
               }
+              required
             />
           </Col>
           <Form.Label as={Col} sm="2">
@@ -276,6 +282,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "email", payload: e.target.value })
               }
+              required
             />
           </Col>
         </Form.Group>
@@ -293,6 +300,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "address", payload: e.target.value })
               }
+              required
             />
           </Col>
         </Form.Group>
@@ -310,6 +318,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "state", payload: e.target.value })
               }
+              required
             />
           </Col>
           <Form.Label as={Col} sm="2">
@@ -324,6 +333,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "city", payload: e.target.value })
               }
+              required
             />
           </Col>
         </Form.Group>
@@ -341,6 +351,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "zip", payload: e.target.value })
               }
+              required
             />
           </Col>
           <Form.Label as={Col} sm="2">
@@ -355,6 +366,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "weight", payload: e.target.value })
               }
+              required
             />
           </Col>
         </Form.Group>
@@ -410,6 +422,7 @@ const Patient = () => {
               onChange={(e) =>
                 dispatch({ type: "admissionDate", payload: e.target.value })
               }
+              required
             />
           </Col>
           <Form.Label as={Col} sm="2">
@@ -455,8 +468,8 @@ const Patient = () => {
                 dispatch({ type: "hasCovidRecovered", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
         </Form.Group>
@@ -473,8 +486,8 @@ const Patient = () => {
                 dispatch({ type: "hasCancerPatient", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
           <Form.Label as={Col} sm="2">
@@ -488,8 +501,8 @@ const Patient = () => {
                 dispatch({ type: "hasHIV", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
         </Form.Group>
@@ -506,8 +519,8 @@ const Patient = () => {
                 dispatch({ type: "hasHepatitis", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
           <Form.Label as={Col} sm="2">
@@ -521,8 +534,8 @@ const Patient = () => {
                 dispatch({ type: "hasBP", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
         </Form.Group>
@@ -539,8 +552,8 @@ const Patient = () => {
                 dispatch({ type: "hasHTLV1", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
           <Form.Label as={Col} sm="2">
@@ -554,8 +567,8 @@ const Patient = () => {
                 dispatch({ type: "hasHeartAilment", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
         </Form.Group>
@@ -572,8 +585,8 @@ const Patient = () => {
                 dispatch({ type: "hasKidneyAilment", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
           <Form.Label as={Col} sm="2">
@@ -587,8 +600,8 @@ const Patient = () => {
                 dispatch({ type: "hasPrgenantInPast", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
         </Form.Group>
@@ -605,8 +618,8 @@ const Patient = () => {
                 dispatch({ type: "hasTB", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
           <Form.Label as={Col} sm="2">
@@ -620,8 +633,8 @@ const Patient = () => {
                 dispatch({ type: "hasTatto", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
         </Form.Group>
@@ -638,17 +651,17 @@ const Patient = () => {
                 dispatch({ type: "hasSurgery", payload: e.target.value })
               }
             >
-              <option value="Y">Yes</option>
               <option value="N">No</option>
+              <option value="Y">Yes</option>
             </Form.Control>
           </Col>
         </Form.Group>
 
         <div className="text-center">
-          <Button variant="primary" type="submit" size="sm" onClick={onSubmit}>
+          <Button variant="primary" type="submit" size="sm">
             Submit
           </Button>{" "}
-          <Button variant="secondary" type="reset" size="sm" onClick={onReset}>
+          <Button variant="secondary" type="reset" size="sm">
             Reset
           </Button>
         </div>
