@@ -104,10 +104,10 @@ const Upload = () => {
           <Form>
             <Row>
               <Col sm="9" md="9">
-                <Form.File id="upload" name="upload" onChange={onFileChange} />
+                <Form.File id="upload" name="upload" onChange={onFileChange} required />
               </Col>
               <Col>
-                <Button variant="primary" type="button" onClick={onFileUpload}>
+                <Button variant="primary" type="submit" onClick={onFileUpload}>
                   {DATA.btnUpload}
                 </Button>
               </Col>
